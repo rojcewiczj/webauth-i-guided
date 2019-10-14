@@ -1,7 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-
+const bcrypt = require('bcryptjs');
 const db = require('./database/dbConfig.js');
 const Users = require('./users/users-model.js');
 
@@ -26,6 +26,7 @@ server.post('/api/register', (req, res) => {
       res.status(500).json(error);
     });
 });
+
 
 server.post('/api/login', (req, res) => {
   let { username, password } = req.body;
